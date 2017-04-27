@@ -1,0 +1,29 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "BBE3201EEA9C04A4BFCC77D0FBC63E80BB101560" : 9223372036854775807,
+    "9CB793724596AD856D47EB814C6FC8F7C888F458" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "65579192-B28F-479C-8B1E-4ADA68637307",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "BBE3201EEA9C04A4BFCC77D0FBC63E80BB101560" : "WebRTC\/",
+    "9CB793724596AD856D47EB814C6FC8F7C888F458" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Convasation",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Convasation.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.wilddog.cn:ios\/WilddogVideo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9CB793724596AD856D47EB814C6FC8F7C888F458"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.wilddog.cn:media\/video-client-ios-webrtc-binary.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BBE3201EEA9C04A4BFCC77D0FBC63E80BB101560"
+    }
+  ]
+}

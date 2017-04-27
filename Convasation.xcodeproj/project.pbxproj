@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B19CCC4FBDD9EBF036FE25A1 /* Pods_Convasation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0386502F8EE334904C6AB5 /* Pods_Convasation.framework */; };
+		EA089CBE1EB03AF300AA16EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CBD1EB03AF300AA16EC /* main.m */; };
+		EA089CC11EB03AF300AA16EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CC01EB03AF300AA16EC /* AppDelegate.m */; };
+		EA089CC71EB03AF300AA16EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA089CC51EB03AF300AA16EC /* Main.storyboard */; };
+		EA089CC91EB03AF300AA16EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA089CC81EB03AF300AA16EC /* Assets.xcassets */; };
+		EA089CCC1EB03AF300AA16EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA089CCA1EB03AF300AA16EC /* LaunchScreen.storyboard */; };
+		EA089CD61EB04B8700AA16EC /* libPGSkinPrettifyEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA089CD41EB04B8700AA16EC /* libPGSkinPrettifyEngine.a */; };
+		EA089CD81EB04C1D00AA16EC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EA089CD71EB04C1D00AA16EC /* libiconv.tbd */; };
+		EA089CDA1EB04C2600AA16EC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EA089CD91EB04C2600AA16EC /* libz.tbd */; };
+		EA089CDC1EB04C3000AA16EC /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EA089CDB1EB04C3000AA16EC /* libbz2.tbd */; };
+		EA089CDE1EB04C3700AA16EC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA089CDD1EB04C3700AA16EC /* CoreMedia.framework */; };
+		EA089CE01EB04C3F00AA16EC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA089CDF1EB04C3F00AA16EC /* AVFoundation.framework */; };
+		EA089CE21EB04CCB00AA16EC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EA089CE11EB04CCB00AA16EC /* libc++.tbd */; };
+		EA089CE51EB07D3100AA16EC /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CE41EB07D3100AA16EC /* InviteViewController.m */; };
+		EA089CE81EB0867900AA16EC /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CE71EB0867900AA16EC /* RoomViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4C0386502F8EE334904C6AB5 /* Pods_Convasation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Convasation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		535E4FFD9E2994FE58EE38D7 /* Pods-Convasation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convasation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Convasation/Pods-Convasation.debug.xcconfig"; sourceTree = "<group>"; };
+		C8C8979DEE4581F3DB9C2167 /* Pods-Convasation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convasation.release.xcconfig"; path = "Pods/Target Support Files/Pods-Convasation/Pods-Convasation.release.xcconfig"; sourceTree = "<group>"; };
+		EA089CB91EB03AF300AA16EC /* Convasation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Convasation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA089CBD1EB03AF300AA16EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EA089CBF1EB03AF300AA16EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EA089CC01EB03AF300AA16EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EA089CC61EB03AF300AA16EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EA089CC81EB03AF300AA16EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA089CCB1EB03AF300AA16EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EA089CCD1EB03AF300AA16EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA089CD41EB04B8700AA16EC /* libPGSkinPrettifyEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPGSkinPrettifyEngine.a; sourceTree = "<group>"; };
+		EA089CD51EB04B8700AA16EC /* PGSkinPrettifyEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSkinPrettifyEngine.h; sourceTree = "<group>"; };
+		EA089CD71EB04C1D00AA16EC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		EA089CD91EB04C2600AA16EC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		EA089CDB1EB04C3000AA16EC /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		EA089CDD1EB04C3700AA16EC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		EA089CDF1EB04C3F00AA16EC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EA089CE11EB04CCB00AA16EC /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		EA089CE31EB07D3100AA16EC /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
+		EA089CE41EB07D3100AA16EC /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
+		EA089CE61EB0867900AA16EC /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
+		EA089CE71EB0867900AA16EC /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA089CB61EB03AF300AA16EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA089CE21EB04CCB00AA16EC /* libc++.tbd in Frameworks */,
+				EA089CE01EB04C3F00AA16EC /* AVFoundation.framework in Frameworks */,
+				EA089CDE1EB04C3700AA16EC /* CoreMedia.framework in Frameworks */,
+				EA089CDC1EB04C3000AA16EC /* libbz2.tbd in Frameworks */,
+				EA089CDA1EB04C2600AA16EC /* libz.tbd in Frameworks */,
+				EA089CD81EB04C1D00AA16EC /* libiconv.tbd in Frameworks */,
+				EA089CD61EB04B8700AA16EC /* libPGSkinPrettifyEngine.a in Frameworks */,
+				B19CCC4FBDD9EBF036FE25A1 /* Pods_Convasation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31843C4FA96B3FB4E8BFA2B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA089CE11EB04CCB00AA16EC /* libc++.tbd */,
+				EA089CDF1EB04C3F00AA16EC /* AVFoundation.framework */,
+				EA089CDD1EB04C3700AA16EC /* CoreMedia.framework */,
+				EA089CDB1EB04C3000AA16EC /* libbz2.tbd */,
+				EA089CD91EB04C2600AA16EC /* libz.tbd */,
+				EA089CD71EB04C1D00AA16EC /* libiconv.tbd */,
+				4C0386502F8EE334904C6AB5 /* Pods_Convasation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86169519707A21A00BAA8A9E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				535E4FFD9E2994FE58EE38D7 /* Pods-Convasation.debug.xcconfig */,
+				C8C8979DEE4581F3DB9C2167 /* Pods-Convasation.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EA089CB01EB03AF300AA16EC = {
+			isa = PBXGroup;
+			children = (
+				EA089CD31EB04B8700AA16EC /* PGSkinPrettifyEngine */,
+				EA089CBB1EB03AF300AA16EC /* Convasation */,
+				EA089CBA1EB03AF300AA16EC /* Products */,
+				86169519707A21A00BAA8A9E /* Pods */,
+				31843C4FA96B3FB4E8BFA2B1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EA089CBA1EB03AF300AA16EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA089CB91EB03AF300AA16EC /* Convasation.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EA089CBB1EB03AF300AA16EC /* Convasation */ = {
+			isa = PBXGroup;
+			children = (
+				EA089CBF1EB03AF300AA16EC /* AppDelegate.h */,
+				EA089CC01EB03AF300AA16EC /* AppDelegate.m */,
+				EA089CE31EB07D3100AA16EC /* InviteViewController.h */,
+				EA089CE41EB07D3100AA16EC /* InviteViewController.m */,
+				EA089CE61EB0867900AA16EC /* RoomViewController.h */,
+				EA089CE71EB0867900AA16EC /* RoomViewController.m */,
+				EA089CC51EB03AF300AA16EC /* Main.storyboard */,
+				EA089CC81EB03AF300AA16EC /* Assets.xcassets */,
+				EA089CCA1EB03AF300AA16EC /* LaunchScreen.storyboard */,
+				EA089CCD1EB03AF300AA16EC /* Info.plist */,
+				EA089CBC1EB03AF300AA16EC /* Supporting Files */,
+			);
+			path = Convasation;
+			sourceTree = "<group>";
+		};
+		EA089CBC1EB03AF300AA16EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA089CBD1EB03AF300AA16EC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA089CD31EB04B8700AA16EC /* PGSkinPrettifyEngine */ = {
+			isa = PBXGroup;
+			children = (
+				EA089CD41EB04B8700AA16EC /* libPGSkinPrettifyEngine.a */,
+				EA089CD51EB04B8700AA16EC /* PGSkinPrettifyEngine.h */,
+			);
+			path = PGSkinPrettifyEngine;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EA089CB81EB03AF300AA16EC /* Convasation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA089CD01EB03AF300AA16EC /* Build configuration list for PBXNativeTarget "Convasation" */;
+			buildPhases = (
+				481480241D9660DA84B0215D /* [CP] Check Pods Manifest.lock */,
+				EA089CB51EB03AF300AA16EC /* Sources */,
+				EA089CB61EB03AF300AA16EC /* Frameworks */,
+				EA089CB71EB03AF300AA16EC /* Resources */,
+				937C314E4ADD05021B690239 /* [CP] Embed Pods Frameworks */,
+				47CF02356BA2CCC2F80EAC01 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Convasation;
+			productName = Convasation;
+			productReference = EA089CB91EB03AF300AA16EC /* Convasation.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA089CB11EB03AF300AA16EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = wilddog;
+				TargetAttributes = {
+					EA089CB81EB03AF300AA16EC = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 5RERN32D73;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = EA089CB41EB03AF300AA16EC /* Build configuration list for PBXProject "Convasation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EA089CB01EB03AF300AA16EC;
+			productRefGroup = EA089CBA1EB03AF300AA16EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA089CB81EB03AF300AA16EC /* Convasation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EA089CB71EB03AF300AA16EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA089CCC1EB03AF300AA16EC /* LaunchScreen.storyboard in Resources */,
+				EA089CC91EB03AF300AA16EC /* Assets.xcassets in Resources */,
+				EA089CC71EB03AF300AA16EC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47CF02356BA2CCC2F80EAC01 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Convasation/Pods-Convasation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		481480241D9660DA84B0215D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		937C314E4ADD05021B690239 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Convasation/Pods-Convasation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA089CB51EB03AF300AA16EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA089CE81EB0867900AA16EC /* RoomViewController.m in Sources */,
+				EA089CC11EB03AF300AA16EC /* AppDelegate.m in Sources */,
+				EA089CBE1EB03AF300AA16EC /* main.m in Sources */,
+				EA089CE51EB07D3100AA16EC /* InviteViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EA089CC51EB03AF300AA16EC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA089CC61EB03AF300AA16EC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EA089CCA1EB03AF300AA16EC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA089CCB1EB03AF300AA16EC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EA089CCE1EB03AF300AA16EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EA089CCF1EB03AF300AA16EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA089CD11EB03AF300AA16EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 535E4FFD9E2994FE58EE38D7 /* Pods-Convasation.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5RERN32D73;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = Convasation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PGSkinPrettifyEngine",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pg.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EA089CD21EB03AF300AA16EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8C8979DEE4581F3DB9C2167 /* Pods-Convasation.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5RERN32D73;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = Convasation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PGSkinPrettifyEngine",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pg.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA089CB41EB03AF300AA16EC /* Build configuration list for PBXProject "Convasation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA089CCE1EB03AF300AA16EC /* Debug */,
+				EA089CCF1EB03AF300AA16EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA089CD01EB03AF300AA16EC /* Build configuration list for PBXNativeTarget "Convasation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA089CD11EB03AF300AA16EC /* Debug */,
+				EA089CD21EB03AF300AA16EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EA089CB11EB03AF300AA16EC /* Project object */;
+}
