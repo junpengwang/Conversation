@@ -10,39 +10,35 @@
 #import "PGSkinPrettifyEngine.h"
 #import "RoomViewController.h"
 
-@import WilddogVideo;
-@import WilddogSync;
-@import WilddogAuth;
-@import WilddogCore;
+#import <WilddogVideo/WilddogVideo.h>
+#import <WilddogSync/WilddogSync.h>
+#import <WilddogAuth/WilddogAuth.h>
+#import <WilddogCore/WilddogCore.h>
 
 @interface InviteViewController ()<WDGVideoClientDelegate> {
-    PGSkinPrettifyEngine *_pPGSkinPrettifyEngine;
 }
 
+- (IBAction)setting:(id)sender;
 @property (nonatomic, strong) WDGSyncReference *wilddogSyncReference;
 @property (nonatomic, strong) WDGAuth *wilddogAuth;
 @property (nonatomic, strong) WDGVideoClient *wilddogVideoClient;
 
-@property (nonatomic) __attribute__((NSObject)) CFMutableArrayRef sampleBufferList;
-@property (strong, nonatomic) dispatch_queue_t mSkinQueue;
-@property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
 @property (nonatomic, strong) NSMutableArray<NSString *> *onLineUsers;
 @property (nonatomic, strong) NSString *myUserID;
+
+@property (nonatomic, assign) WDGVideoConstraints videoConstraints;
 
 @end
 
 
-#define DEMOKEY @"VkV3Nf+H1yOBI59QE4Uc8Pq/Lu0jXC9OmFKqVwGakeyerQOaROUJkZyR9zP4KvPJPinMUafrWqQN8KSNwEGZGi5WFT4jrBeLjZslLp0tUkCXC/wY8BSlQAA2pyq6q5Ovz2QG0Jm9rXCjfTn/5r8TaaWaRCuRZoTNyOZVaKZeH6I="
 
 @implementation InviteViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Not Login";
-    
+    self.videoConstraints = WDGVideoConstraints720p;
     self.onLineUsers = [NSMutableArray new];
-    
-    [self setupCamera360];
     
     [self setupWilddogSyncAndAuth];
     
@@ -61,17 +57,6 @@
 
 #pragma mark - init
 
-- (void)setupCamera360 {
-    _pPGSkinPrettifyEngine = [[PGSkinPrettifyEngine alloc] init];
-    
-    [_pPGSkinPrettifyEngine InitEngineWithKey:DEMOKEY];
-    
-    _sampleBufferList = CFArrayCreateMutable(kCFAllocatorDefault, 0, & kCFTypeArrayCallBacks);//存储需要处理的数据
-    _mSkinQueue = dispatch_queue_create("com.skin.configure", DISPATCH_QUEUE_SERIAL);
-    
-    _frameRenderingSemaphore = dispatch_semaphore_create(1);//通过信号量来保护数据
-}
-
 - (void)setupWilddogSyncAndAuth {
     [WDGApp configureWithOptions:[[WDGOptions alloc] initWithSyncURL:@"https://wildvideo.wilddogio.com/"]];
     self.wilddogSyncReference = [[[WDGSync sync] reference] child:@"wilddogVideo"];
@@ -80,11 +65,27 @@
 
 - (void)setupWilddogVideoClient {
     
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+
+    __weak typeof(self) weakSelf = self;
+    [[[[WDGSync sync] reference] child:@".info/connected"] observeEventType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot * _Nonnull snapshot) {
+        if ([snapshot.value boolValue]) {
+            if (weakSelf.myUserID) {
+                WDGSyncReference *ref = [[weakSelf.wilddogSyncReference.root child:@"users"] child:weakSelf.myUserID];
+                [ref setValue:@YES withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
+                    assert(error==nil);
+                    [ref onDisconnectRemoveValueWithCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
+                        assert(error == nil);
+                    }];
+                }];
+            }
+        }
+    }];
+
+    [self.wilddogAuth signOut:nil];
+
     [self.wilddogAuth signInAnonymouslyWithCompletion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
         
-        if (error) {
-            [self.wilddogAuth signOut:nil];
-        }
         if (!user) {
             NSLog(@"请在控制台为您的AppID开启匿名登录功能");
         }
@@ -95,6 +96,10 @@
             self.wilddogVideoClient = [[WDGVideoClient alloc] initWithApp:[WDGApp defaultApp]];
             self.wilddogVideoClient.delegate = self;
         }];
+    }];
+    
+    [self.wilddogAuth addAuthStateDidChangeListener:^(WDGAuth * _Nonnull auth, WDGUser * _Nullable user) {
+        
     }];
 }
 
@@ -110,6 +115,7 @@
                 break;
             }
         }
+        NSLog(@"users-----%@",users);
         self.onLineUsers = users;
         [weakSelf.tableView reloadData];
     }];
@@ -156,14 +162,16 @@
                                                                    message:[NSString stringWithFormat:@"正在邀请 %@ 进行视频通话",uid]
                                                             preferredStyle:UIAlertControllerStyleAlert];
     WDGVideoLocalStreamOptions *option = [[WDGVideoLocalStreamOptions alloc] init];
-    option.videoOption = WDGVideoConstraintsHigh;
+    option.videoOption = self.videoConstraints;
     WDGVideoLocalStream *localStream = [[WDGVideoLocalStream alloc] initWithOptions:option];
     
     WDGVideoConnectOptions *connectOptions = [[WDGVideoConnectOptions alloc] initWithLocalStream:localStream];
     connectOptions.userData = @"abc";
     
     WDGVideoOutgoingInvite *outgoingInvitation = [self.wilddogVideoClient inviteToConversationWithID:uid options:connectOptions completion:^(WDGVideoConversation * _Nullable conversation, NSError * _Nullable error) {
-        assert(error == nil);
+        if (error) {
+            NSLog(@"%@",error);
+        }
         [self dismissViewControllerAnimated:YES
                                  completion:^{
                                      [self presentRoomWithConversation:conversation];
@@ -199,8 +207,9 @@
     
     [alert addAction:[UIAlertAction actionWithTitle:@"接受" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         WDGVideoLocalStreamOptions *option = [[WDGVideoLocalStreamOptions alloc] init];
-        option.videoOption = WDGVideoConstraintsHigh;
+        option.videoOption = self.videoConstraints;
         WDGVideoLocalStream *localStream = [[WDGVideoLocalStream alloc] initWithOptions:option];
+        NSLog(@"%@",localStream);
         [invite acceptWithLocalStream:localStream completion:^(WDGVideoConversation * _Nullable conversation, NSError * _Nullable error) {
             assert(error == nil);
             [self presentRoomWithConversation:conversation];
@@ -211,4 +220,28 @@
 
 }
 #pragma mark -
+- (IBAction)setting:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"设置清晰度"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"360p" style:(_videoConstraints == WDGVideoConstraints360p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
+        self.videoConstraints = WDGVideoConstraints360p;
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"480p" style:(_videoConstraints == WDGVideoConstraints480p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
+        self.videoConstraints = WDGVideoConstraints480p;
+
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"720p" style:(_videoConstraints == WDGVideoConstraints720p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
+        self.videoConstraints = WDGVideoConstraints720p;
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"1080p" style:(_videoConstraints == WDGVideoConstraints1080p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
+        self.videoConstraints = WDGVideoConstraints1080p;
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        self.videoConstraints = WDGVideoConstraints1080p;
+    }]];
+    [self presentViewController:alert animated:YES completion:NULL];
+}
 @end

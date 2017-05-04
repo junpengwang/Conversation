@@ -1,15 +1,14 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '8.0'
+
 source 'git@gitlab.wilddog.cn:ios/Specs.git'
+#source 'https://github.com/WildDogTeam/wilddog-ios-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
+
 target 'Convasation' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  use_frameworks!
   pod 'WilddogVideo', :path => '../'
-  pod 'WilddogSync'
 
+  #pod 'WilddogVideo'
   # Pods for Convasation
-
 end
 
 post_install do |installer|
@@ -19,3 +18,7 @@ post_install do |installer|
         end
     end
 end
+
+
+
+

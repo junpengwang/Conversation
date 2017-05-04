@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B19CCC4FBDD9EBF036FE25A1 /* Pods_Convasation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0386502F8EE334904C6AB5 /* Pods_Convasation.framework */; };
 		EA089CBE1EB03AF300AA16EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CBD1EB03AF300AA16EC /* main.m */; };
 		EA089CC11EB03AF300AA16EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CC01EB03AF300AA16EC /* AppDelegate.m */; };
 		EA089CC71EB03AF300AA16EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA089CC51EB03AF300AA16EC /* Main.storyboard */; };
@@ -22,10 +21,10 @@
 		EA089CE21EB04CCB00AA16EC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EA089CE11EB04CCB00AA16EC /* libc++.tbd */; };
 		EA089CE51EB07D3100AA16EC /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CE41EB07D3100AA16EC /* InviteViewController.m */; };
 		EA089CE81EB0867900AA16EC /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CE71EB0867900AA16EC /* RoomViewController.m */; };
+		FFBFA0B39E8BB18A3B446AE1 /* libPods-Convasation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB6EAD2FAC63AD01FEEFAE2A /* libPods-Convasation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4C0386502F8EE334904C6AB5 /* Pods_Convasation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Convasation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		535E4FFD9E2994FE58EE38D7 /* Pods-Convasation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convasation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Convasation/Pods-Convasation.debug.xcconfig"; sourceTree = "<group>"; };
 		C8C8979DEE4581F3DB9C2167 /* Pods-Convasation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convasation.release.xcconfig"; path = "Pods/Target Support Files/Pods-Convasation/Pods-Convasation.release.xcconfig"; sourceTree = "<group>"; };
 		EA089CB91EB03AF300AA16EC /* Convasation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Convasation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +47,8 @@
 		EA089CE41EB07D3100AA16EC /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
 		EA089CE61EB0867900AA16EC /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		EA089CE71EB0867900AA16EC /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		EA089D8C1EB339BA00AA16EC /* PGSkinPrettifyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSkinPrettifyType.h; sourceTree = "<group>"; };
+		EB6EAD2FAC63AD01FEEFAE2A /* libPods-Convasation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Convasation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +63,7 @@
 				EA089CDA1EB04C2600AA16EC /* libz.tbd in Frameworks */,
 				EA089CD81EB04C1D00AA16EC /* libiconv.tbd in Frameworks */,
 				EA089CD61EB04B8700AA16EC /* libPGSkinPrettifyEngine.a in Frameworks */,
-				B19CCC4FBDD9EBF036FE25A1 /* Pods_Convasation.framework in Frameworks */,
+				FFBFA0B39E8BB18A3B446AE1 /* libPods-Convasation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +79,7 @@
 				EA089CDB1EB04C3000AA16EC /* libbz2.tbd */,
 				EA089CD91EB04C2600AA16EC /* libz.tbd */,
 				EA089CD71EB04C1D00AA16EC /* libiconv.tbd */,
-				4C0386502F8EE334904C6AB5 /* Pods_Convasation.framework */,
+				EB6EAD2FAC63AD01FEEFAE2A /* libPods-Convasation.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,6 +141,7 @@
 		EA089CD31EB04B8700AA16EC /* PGSkinPrettifyEngine */ = {
 			isa = PBXGroup;
 			children = (
+				EA089D8C1EB339BA00AA16EC /* PGSkinPrettifyType.h */,
 				EA089CD41EB04B8700AA16EC /* libPGSkinPrettifyEngine.a */,
 				EA089CD51EB04B8700AA16EC /* PGSkinPrettifyEngine.h */,
 			);
@@ -402,7 +404,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PGSkinPrettifyEngine",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pg.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wilddog.videodemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -421,7 +423,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PGSkinPrettifyEngine",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pg.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wilddog.videodemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -1,4 +1,5 @@
 PODS:
+  - WebRTC (58.0.1)
   - WilddogAuth (2.0.7):
     - WilddogCore
   - WilddogCore (2.0.8):
@@ -14,12 +15,12 @@ PODS:
     - WilddogCore (~> 2.0.8)
     - WilddogWebSocket (~> 1.0.0)
   - WilddogVideo (0.5.16):
+    - WebRTC
     - WilddogAuth
     - WilddogSync
   - WilddogWebSocket (1.0.1)
 
 DEPENDENCIES:
-  - WilddogSync
   - WilddogVideo (from `../`)
 
 EXTERNAL SOURCES:
@@ -27,14 +28,15 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
+  WebRTC: 63a487db2c5d7d563a885289eff2d4ced06d6467
   WilddogAuth: 79e4bbe52de7a78baa58ed97552652a2daa49274
   WilddogCore: 1fc4c1826c0fe9d73bdc9059529e50ce669cdfdd
   WilddogLogger: 3da55c7c866eed51766a5bdf3ceaf5b33d1629e4
   WilddogNetworking: 0e7f80b0839f376fa4d613c602b7c4f72634e761
   WilddogSync: cc2608fd5fdeff6b1b83ad98f4f17de8298dbfff
-  WilddogVideo: 95fba7242747e6ad3aae8612425bcd3e8364ba6d
+  WilddogVideo: 600ae7ae11d248333e0dc0178ffe7bfe744f7ba3
   WilddogWebSocket: 0f1437b4d26cfcd3b85376cba55e03b202e0e1b4
 
-PODFILE CHECKSUM: 7bf1895204069cf577d76a74bfd2a452649f7a5f
+PODFILE CHECKSUM: 2df138d5d83a309cb9ba9b6a484241811638ff17
 
 COCOAPODS: 1.2.0

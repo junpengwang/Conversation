@@ -19,14 +19,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Convasation/RoomViewController.m"
-            timestampString = "514902236.525038"
+            filePath = "../WilddogVideo/Invitation/WDGVideoInvitationManager.m"
+            timestampString = "514967084.718396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "-participant:didFailedToConnectWithError:"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
+            landmarkName = "-_respondingIncomingInviteStatusChange:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WDGVideoInvitationManager _respondingIncomingInviteStatusChange:]"
+                  moduleName = "Convasation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/junpengwang/Documents/Work/iOS/WilddogVideo/WilddogVideo/Invitation/WDGVideoInvitationManager.m"
+                  timestampString = "515063309.407496"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "341"
+                  endingLineNumber = "341"
+                  offsetFromSymbolStart = "944">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WDGVideoInvitationManager _respondingIncomingInviteStatusChange:]"
+                  moduleName = "Convasation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/junpengwang/Documents/Work/iOS/WilddogVideo/WilddogVideo/Invitation/WDGVideoInvitationManager.m"
+                  timestampString = "515063309.408765"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "341"
+                  endingLineNumber = "341"
+                  offsetFromSymbolStart = "972">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -35,45 +67,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Convasation/RoomViewController.m"
-            timestampString = "514902236.525038"
+            filePath = "../WilddogVideo/WDGVideoClient.m"
+            timestampString = "515052529.03437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "-participant:didDisconnectWithError:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Convasation/RoomViewController.m"
-            timestampString = "514902236.525038"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "-conversation:didDisconnectParticipant:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Convasation/RoomViewController.m"
-            timestampString = "514902236.525038"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-setWilddogVideoConversation:"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "-inviteToConversationWithID:options:completion:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -84,28 +84,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Convasation/InviteViewController.m"
-            timestampString = "514955713.489684"
+            timestampString = "515063103.984112"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "-inviteUserWithUid:client:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Convasation/RoomViewController.m"
-            timestampString = "514902236.525038"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-dealloc"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-setupWilddogVideoClient"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
