@@ -25,7 +25,7 @@
 
 @property (nonatomic, strong) NSMutableArray<NSString *> *onLineUsers;
 @property (nonatomic, strong) NSString *myUserID;
-
+@property (nonatomic, strong) NSString *toUserID;
 @property (nonatomic, assign) WDGVideoConstraints videoConstraints;
 
 @end
@@ -82,12 +82,13 @@
         }
     }];
 
-    [self.wilddogAuth signOut:nil];
+//    [self.wilddogAuth signOut:nil];
 
     [self.wilddogAuth signInAnonymouslyWithCompletion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
         
         if (!user) {
             NSLog(@"请在控制台为您的AppID开启匿名登录功能");
+            return ;
         }
         self.title = user.uid;
         self.myUserID = user.uid;
@@ -153,39 +154,16 @@
 }
 
 - (void)wilddogVideoClient:(WDGVideoClient *)videoClient inviteDidCancel:(WDGVideoIncomingInvite *)invite {
-
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark - method
 - (void)inviteUserWithUid:(NSString *)uid client:(WDGVideoClient *)client {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"邀请"
-                                                                   message:[NSString stringWithFormat:@"正在邀请 %@ 进行视频通话",uid]
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    WDGVideoLocalStreamOptions *option = [[WDGVideoLocalStreamOptions alloc] init];
-    option.videoOption = self.videoConstraints;
-    WDGVideoLocalStream *localStream = [[WDGVideoLocalStream alloc] initWithOptions:option];
-    
-    WDGVideoConnectOptions *connectOptions = [[WDGVideoConnectOptions alloc] initWithLocalStream:localStream];
-    connectOptions.userData = @"abc";
-    
-    WDGVideoOutgoingInvite *outgoingInvitation = [self.wilddogVideoClient inviteToConversationWithID:uid options:connectOptions completion:^(WDGVideoConversation * _Nullable conversation, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"%@",error);
-        }
-        [self dismissViewControllerAnimated:YES
-                                 completion:^{
-                                     [self presentRoomWithConversation:conversation];
-                                 }];
-    }];
-    
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消邀请" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        [outgoingInvitation cancel];
-    }]];
-    
-    [self presentViewController:alert animated:YES completion:NULL];
+    self.toUserID = uid;
+    [self presentRoomWithConversation:nil toUid:uid];
 }
 
-- (void)presentRoomWithConversation:(WDGVideoConversation *)conversation {
+- (void)presentRoomWithConversation:(WDGVideoConversation *)conversation toUid:(NSString *)uid{
     UINavigationController *roomNavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"RoomNavigationController"];
     RoomViewController *roomVC = roomNavigationController.viewControllers.firstObject;
     if (![roomVC isKindOfClass:[RoomViewController class]]) {
@@ -194,6 +172,7 @@
     roomVC.wilddogVideoConversation = conversation;
     roomVC.syncReference = self.wilddogSyncReference;
     roomVC.wilddogVideoClient = self.wilddogVideoClient;
+    roomVC.uid = uid;
     [self presentViewController:roomNavigationController animated:YES completion:NULL];
 }
 
@@ -211,8 +190,8 @@
         WDGVideoLocalStream *localStream = [[WDGVideoLocalStream alloc] initWithOptions:option];
         NSLog(@"%@",localStream);
         [invite acceptWithLocalStream:localStream completion:^(WDGVideoConversation * _Nullable conversation, NSError * _Nullable error) {
-            assert(error == nil);
-            [self presentRoomWithConversation:conversation];
+            
+            [self presentRoomWithConversation:conversation toUid:nil];
         }];
     }]];
     

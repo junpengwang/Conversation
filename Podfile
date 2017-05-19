@@ -1,13 +1,13 @@
 platform :ios, '8.0'
 
 source 'git@gitlab.wilddog.cn:ios/Specs.git'
-#source 'https://github.com/WildDogTeam/wilddog-ios-repo.git'
+source 'https://github.com/WildDogTeam/wilddog-ios-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Convasation' do
-  pod 'WilddogVideo', :path => '../'
+  pod 'WilddogVideo', :path => '../WilddogVideo'
 
-  #pod 'WilddogVideo'
+#pod 'WilddogVideo','0.6.0pre'
   # Pods for Convasation
 end
 

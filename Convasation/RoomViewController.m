@@ -20,13 +20,13 @@
 @property (weak, nonatomic) IBOutlet WDGVideoView *localVideoView;
 @property (weak, nonatomic) IBOutlet WDGVideoView *remoteVideoView;
 
-@property (nonatomic, weak) WDGVideoLocalStream *localStream;
+@property (nonatomic, strong) WDGVideoLocalStream *localStream;
+@property (nonatomic, strong) WDGVideoOutgoingInvite *outgoingInvite;
 
 // camera 360
 @property (nonatomic, strong) PGSkinPrettifyEngine *pPGSkinPrettifyEngine;
 @property (nonatomic) __attribute__((NSObject)) CFMutableArrayRef sampleBufferList;
 @property (strong, nonatomic) dispatch_queue_t mSkinQueue;
-@property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
 @property (nonatomic, assign) BOOL m_bIsFirstFrame;
 
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
@@ -37,7 +37,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *remoteSize;
 @property (weak, nonatomic) IBOutlet UILabel *remotefps;
 @property (weak, nonatomic) IBOutlet UILabel *bitRecieve;
-@property (weak, nonatomic) IBOutlet UILabel *recieveRate;
+@property (weak, nonatomic) IBOutlet UILabel *receiverate;
 
 
 @end
@@ -54,14 +54,19 @@
 }
 
 - (void)dealloc {
-    [self.localStream close];
-    self.localStream = nil;
+    NSLog(@"RoomViewController dealloc");
+    
     [_pPGSkinPrettifyEngine DestroyEngine];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
+    self.remoteVideoView.contentMode = UIViewContentModeScaleAspectFill;
+    self.localVideoView.contentMode = UIViewContentModeScaleAspectFill;
+    [self setupStream];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSessionRouteChange:) name:AVAudioSessionRouteChangeNotification object:nil];
+
     // Do any additional setup after loading the view.
 }
 
@@ -84,8 +89,6 @@
     _sampleBufferList = CFArrayCreateMutable(kCFAllocatorDefault, 0, & kCFTypeArrayCallBacks);//存储需要处理的数据
     _mSkinQueue = dispatch_queue_create("com.skin.configure", DISPATCH_QUEUE_SERIAL);
     
-    _frameRenderingSemaphore = dispatch_semaphore_create(1);//通过信号量来保护数据
-    
     [self.pPGSkinPrettifyEngine SetSkinSoftenAlgorithm:PGSoftenAlgorithmContrast];
     
     /*--------------------增加滤镜----------------------*/
@@ -103,36 +106,70 @@
 
 }
 
-- (void)logtest {
-    static int i = 1234598;
-    self.logView.text = [_logView.text stringByAppendingFormat:@"%i",i];
-    i++;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self logtest];
-    });
+- (void)didSessionRouteChange:(NSNotification *)notification
+{
+    NSDictionary *interuptionDict = notification.userInfo;
+    NSInteger routeChangeReason = [[interuptionDict valueForKey:AVAudioSessionRouteChangeReasonKey] integerValue];
     
-    [_logView setContentOffset:CGPointMake(0,  (_logView.contentSize.height - _logView.frame.size.height))];
-}
-
-- (void)setWilddogVideoConversation:(WDGVideoConversation *)wilddogVideoConversation {
-    // Note: Force storyboard load view.
-    [self loadViewIfNeeded];
-    self.localStream = wilddogVideoConversation.localParticipant.stream;
-    _wilddogVideoConversation = wilddogVideoConversation;
-    wilddogVideoConversation.delegate = self;
-    wilddogVideoConversation.statsDelegate = self;
-
-    self.localStream.delegate = self;
-    [self.localStream attach:self.localVideoView];
-    WDGVideoRemoteStream *remoteStream = wilddogVideoConversation.participant.stream;
-    if (remoteStream) {
-        NSLog(@"attach remote video View ");
-        [remoteStream attach:_remoteVideoView];
+    switch (routeChangeReason) {
+        case AVAudioSessionRouteChangeReasonCategoryChange: {
+            // Set speaker as default route
+            NSError* error;
+            [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&error];
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
+- (void)setupStream
+{
+    __weak typeof(self) weakSelf = self;
+    if (self.uid) {
+        WDGVideoLocalStreamOptions *option = [[WDGVideoLocalStreamOptions alloc] init];
+        WDGVideoLocalStream *localStream = [[WDGVideoLocalStream alloc] initWithOptions:option];
+        
+        WDGVideoConnectOptions *connectOptions = [[WDGVideoConnectOptions alloc] initWithLocalStream:localStream];
+        connectOptions.userData = @"abc";
+        self.outgoingInvite = [self.wilddogVideoClient inviteToConversationWithID:self.uid options:connectOptions completion:^(WDGVideoConversation * _Nullable conversation, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"%@",error);
+                [weakSelf dismissViewControllerAnimated:YES completion:NULL];
+                return ;
+            }
+            weakSelf.wilddogVideoConversation = conversation;
+            weakSelf.wilddogVideoConversation.statsDelegate = weakSelf;
+        }];
+        self.localStream = localStream;
+        self.localStream.delegate = self;
+
+    } else {
+        self.localStream = self.wilddogVideoConversation.localParticipant.stream;
+        self.localStream.delegate = self;
+        self.wilddogVideoConversation.delegate = self;
+        self.wilddogVideoConversation.statsDelegate = self;
+    }
+    [self.localStream attach:self.localVideoView];
+}
+
+
 - (IBAction)dismiss:(id)sender {
+    
+    [self.outgoingInvite cancel];
+    [self.wilddogVideoConversation disconnect];
+    self.wilddogVideoConversation = nil;
+    [self.localStream close];
+    self.localStream = nil;
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)setWilddogVideoConversation:(WDGVideoConversation *)wilddogVideoConversation {
+    _wilddogVideoConversation = wilddogVideoConversation;
+    _wilddogVideoConversation.delegate = self;
+    NSLog(@"invoke set conversation Delegate: %@",[NSDate date]);
+
 }
 
 #pragma mark WDGVideoConversationDelegate
@@ -143,7 +180,13 @@
  @param participant  代表新的参与者的 `WDGVideoParticipant` 实例。
  */
 - (void)conversation:(WDGVideoConversation *)conversation didConnectParticipant:(WDGVideoParticipant *)participant {
+    NSLog(@"did connect participant");
+    NSLog(@"invoke didConnectParticipant: %@",[NSDate date]);
     participant.delegate = self;
+}
+
+- (void)conversation:(WDGVideoConversation *)conversation didDisconnectWithError:(NSError *_Nullable)error {
+    NSLog(@"conversation disconnect");
 }
 
 /**
@@ -217,15 +260,7 @@
         
         self.m_bIsFirstFrame = NO;
     }
-    _frameRenderingSemaphore = dispatch_semaphore_create(1);
-    dispatch_semaphore_wait(_frameRenderingSemaphore, DISPATCH_TIME_FOREVER);
-    CFArrayAppendValue(_sampleBufferList, pixelBuffer);
-    dispatch_semaphore_signal(_frameRenderingSemaphore);
-    
-    __weak __typeof(self)weakSelf = self;
-    
-    
-    NSDate *date = [NSDate date];
+        
     //  对当前帧进行美肤
     
     [_pPGSkinPrettifyEngine SetInputFrameByCVImage:pixelBuffer];
@@ -234,13 +269,6 @@
     [_pPGSkinPrettifyEngine PGOglViewPresent];
     
     [_pPGSkinPrettifyEngine GetSkinPrettifyResult:&pixelBuffer];
-    
-//    NSTimeInterval time = [[NSDate date] timeIntervalSinceDate:date];
-//    NSLog(@"接口耗时%f", time*1000);
-    
-    dispatch_semaphore_wait(weakSelf.frameRenderingSemaphore, DISPATCH_TIME_FOREVER);
-    CFArrayRemoveValueAtIndex(weakSelf.sampleBufferList, 0);
-    dispatch_semaphore_signal(weakSelf.frameRenderingSemaphore);
     OSType type = CVPixelBufferGetPixelFormatType(pixelBuffer);
     if (type != kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
         NSLog(@"error pixel type");
@@ -256,7 +284,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         _sizeLabel.text = [NSString stringWithFormat:@"%lu*%lu",(unsigned long)report.width,report.height];
         _fpsLabel.text = [NSString stringWithFormat:@"fps:%lu",(unsigned long)report.FPS];
-        _bitSentLabel.text = [NSString stringWithFormat:@"sent:%.2fMB ",report.bytesSent/8/1024/1024.f];
+        _bitSentLabel.text = [NSString stringWithFormat:@"sent:%.2fMB ",report.bytesSent/1024/1024.f];
         _sendRateLabel.text = [NSString stringWithFormat:@"rate:%.2fKBS ",report.bitsSentRate/8.f];
         
 //        NSMutableString *des = [NSMutableString stringWithString:@"LocalStream:"];
@@ -274,8 +302,8 @@
         
         _remoteSize.text = [NSString stringWithFormat:@"%lu*%lu",(unsigned long)report.width,report.height];
         _remotefps.text = [NSString stringWithFormat:@"fps:%lu",(unsigned long)report.FPS];
-        _bitRecieve.text = [NSString stringWithFormat:@"recieved:%.2fMB ",report.bytesReceived/8/1024/1024.f];
-        _recieveRate.text = [NSString stringWithFormat:@"rate:%.2fKBS delay%lums",report.bitsReceivedRate/8.f,(unsigned long)report.delay];
+        _bitRecieve.text = [NSString stringWithFormat:@"recieved:%.2fMB ",report.bytesReceived/1024/1024.f];
+        _receiverate.text = [NSString stringWithFormat:@"rate:%.2fKBS delay%lums",report.bitsReceivedRate/8.f,(unsigned long)report.delay];
         
 //        NSMutableString *des = [NSMutableString stringWithString:@"RemoteStream:"];
 //        [des appendFormat:@"width*height:%lu*%lu ",(unsigned long)report.width,(unsigned long)report.height];
@@ -292,5 +320,27 @@
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     return NO;
+}
+- (IBAction)setting:(id)sender {
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"设置清晰度"
+//                                                                   message:nil
+//                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+//    
+//    [alert addAction:[UIAlertAction actionWithTitle:@"360p" style:0 handler:^(UIAlertAction * _Nonnull action) {
+//        [self.localStream adaptOutputFormatToWidth:480 height:360 fps:1];
+//    }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"480p" style:0 handler:^(UIAlertAction * _Nonnull action) {
+//        [self.localStream adaptOutputFormatToWidth:640 height:480 fps:15];
+//    }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"720p" style:0 handler:^(UIAlertAction * _Nonnull action) {
+//        [self.localStream adaptOutputFormatToWidth:1280 height:720 fps:15];
+//    }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"1080p" style:0 handler:^(UIAlertAction * _Nonnull action) {
+//        [self.localStream adaptOutputFormatToWidth:1280 height:720 fps:15];
+//    }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        [self.localStream adaptOutputFormatToWidth:480 height:360 fps:15];
+//    }]];
+//    [self presentViewController:alert animated:YES completion:NULL];
 }
 @end

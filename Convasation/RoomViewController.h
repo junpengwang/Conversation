@@ -17,5 +17,6 @@
 @property (nonatomic, strong) WDGVideoConversation *wilddogVideoConversation;
 @property (nonatomic, strong) WDGSyncReference *syncReference;
 @property (nonatomic, strong) WDGVideoClient *wilddogVideoClient;
+@property (nonatomic, strong) NSString *uid;
 
 @end

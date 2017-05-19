@@ -19,44 +19,143 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../WilddogVideo/Invitation/WDGVideoInvitationManager.m"
-            timestampString = "514967084.718396"
+            filePath = "Convasation/InviteViewController.m"
+            timestampString = "516874651.559208"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
-            landmarkName = "-_respondingIncomingInviteStatusChange:"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "-setting:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            condition = "1"
+            continueAfterRunningActions = "Yes"
+            filePath = "../WilddogVideo/WilddogVideo/WDGVideoConversation.m"
+            timestampString = "516631013.644359"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-initWithClientOptions:participantID:peerUid:convsersationID:localStream:iceServers:serverReflexiveAddress:peerConnectionFactory:signalingChannel:invitationManager:"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "------------ initConversation"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            condition = "========"
+            continueAfterRunningActions = "Yes"
+            filePath = "../WilddogVideo/WilddogVideo/Signaling/WDGVideoP2PPeerConnectionManager.m"
+            timestampString = "516879478.73563"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "-_processOffer:"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
+                  <ActionContent
+                     consoleCommand = "po self.">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../WilddogVideo/WilddogVideo/Signaling/WDGVideoP2PPeerConnectionManager.m"
+            timestampString = "516879478.73563"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "-_processAnswer:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Convasation/RoomViewController.m"
+            timestampString = "516883573.743375"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "-participant:didDisconnectWithError:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../WilddogVideo/WilddogVideo/WDGVideoConversation.m"
+            timestampString = "516877362.554483"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "-peerConnectionManagerDidConnected:"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[WDGVideoInvitationManager _respondingIncomingInviteStatusChange:]"
+                  symbolName = "-[WDGVideoConversation peerConnectionManagerDidConnected:]"
                   moduleName = "Convasation"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/junpengwang/Documents/Work/iOS/WilddogVideo/WilddogVideo/Invitation/WDGVideoInvitationManager.m"
-                  timestampString = "515063309.407496"
+                  urlString = "file:///Users/junpengwang/Documents/Work/iOS/WilddogVideo/WilddogVideo/WDGVideoConversation.m"
+                  timestampString = "516880876.579262"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "341"
-                  endingLineNumber = "341"
-                  offsetFromSymbolStart = "944">
+                  startingLineNumber = "232"
+                  endingLineNumber = "232"
+                  offsetFromSymbolStart = "180">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[WDGVideoInvitationManager _respondingIncomingInviteStatusChange:]"
+                  symbolName = "-[WDGVideoConversation peerConnectionManagerDidConnected:]"
                   moduleName = "Convasation"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/junpengwang/Documents/Work/iOS/WilddogVideo/WilddogVideo/Invitation/WDGVideoInvitationManager.m"
-                  timestampString = "515063309.408765"
+                  urlString = "file:///Users/junpengwang/Documents/Work/iOS/WilddogVideo/WilddogVideo/WDGVideoConversation.m"
+                  timestampString = "516880876.580751"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "341"
-                  endingLineNumber = "341"
-                  offsetFromSymbolStart = "972">
+                  startingLineNumber = "232"
+                  endingLineNumber = "232"
+                  offsetFromSymbolStart = "208">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -66,14 +165,15 @@
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
+            condition = "[_targetUserID isEqualToString:@&quot;665381fb83771952f05a23b72d35&quot;]"
             continueAfterRunningActions = "No"
-            filePath = "../WilddogVideo/WDGVideoClient.m"
-            timestampString = "515052529.03437"
+            filePath = "../WilddogVideo/WilddogVideo/Signaling/WDGVideoP2PPeerConnectionManager.m"
+            timestampString = "516879687.674032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "-inviteToConversationWithID:options:completion:"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-peerConnection:didAddStream:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -83,13 +183,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Convasation/InviteViewController.m"
-            timestampString = "515063103.984112"
+            filePath = "../WilddogVideo/WilddogVideo/SyncReference/WDGInvitationRef.m"
+            timestampString = "516880376.358754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-setupWilddogVideoClient"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "+clearInviteDataWithInviter:invitee:completion:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
