@@ -282,7 +282,7 @@
 #pragma mark WDGVideoConversationStatsDelegate
 - (void)conversation:(WDGVideoConversation *)conversation didUpdateLocalStreamStatsReport:(WDGVideoLocalStreamStatsReport *)report {
     dispatch_async(dispatch_get_main_queue(), ^{
-        _sizeLabel.text = [NSString stringWithFormat:@"%lu*%lu",(unsigned long)report.width,report.height];
+        _sizeLabel.text = [NSString stringWithFormat:@"%lu*%lu",(unsigned long)report.width,(unsigned long)report.height];
         _fpsLabel.text = [NSString stringWithFormat:@"fps:%lu",(unsigned long)report.FPS];
         _bitSentLabel.text = [NSString stringWithFormat:@"sent:%.2fMB ",report.bytesSent/1024/1024.f];
         _sendRateLabel.text = [NSString stringWithFormat:@"rate:%.2fKBS ",report.bitsSentRate/8.f];
@@ -300,7 +300,7 @@
 - (void)conversation:(WDGVideoConversation *)conversation didUpdateRemoteStreamStatsReport:(WDGVideoRemoteStreamStatsReport *)report {
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        _remoteSize.text = [NSString stringWithFormat:@"%lu*%lu",(unsigned long)report.width,report.height];
+        _remoteSize.text = [NSString stringWithFormat:@"%lu*%lu",(unsigned long)report.width,(unsigned long)report.height];
         _remotefps.text = [NSString stringWithFormat:@"fps:%lu",(unsigned long)report.FPS];
         _bitRecieve.text = [NSString stringWithFormat:@"recieved:%.2fMB ",report.bytesReceived/1024/1024.f];
         _receiverate.text = [NSString stringWithFormat:@"rate:%.2fKBS delay%lums",report.bitsReceivedRate/8.f,(unsigned long)report.delay];
