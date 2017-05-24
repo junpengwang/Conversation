@@ -26,7 +26,6 @@
 @property (nonatomic, strong) NSMutableArray<NSString *> *onLineUsers;
 @property (nonatomic, strong) NSString *myUserID;
 @property (nonatomic, strong) NSString *toUserID;
-@property (nonatomic, assign) WDGVideoConstraints videoConstraints;
 
 @end
 
@@ -37,7 +36,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Not Login";
-    self.videoConstraints = WDGVideoConstraints720p;
     self.onLineUsers = [NSMutableArray new];
     
     [self setupWilddogSyncAndAuth];
@@ -48,6 +46,10 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,7 +84,7 @@
         }
     }];
 
-//    [self.wilddogAuth signOut:nil];
+    [self.wilddogAuth signOut:nil];
 
     [self.wilddogAuth signInAnonymouslyWithCompletion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
         
@@ -186,7 +188,7 @@
     
     [alert addAction:[UIAlertAction actionWithTitle:@"接受" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         WDGVideoLocalStreamOptions *option = [[WDGVideoLocalStreamOptions alloc] init];
-        option.videoOption = self.videoConstraints;
+        option.videoOption = [Config defaultConfig].videoConstraints;
         WDGVideoLocalStream *localStream = [[WDGVideoLocalStream alloc] initWithOptions:option];
         NSLog(@"%@",localStream);
         [invite acceptWithLocalStream:localStream completion:^(WDGVideoConversation * _Nullable conversation, NSError * _Nullable error) {
@@ -204,22 +206,22 @@
                                                                    message:nil
                                                             preferredStyle:UIAlertControllerStyleActionSheet];
 
-    
-    [alert addAction:[UIAlertAction actionWithTitle:@"360p" style:(_videoConstraints == WDGVideoConstraints360p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
-        self.videoConstraints = WDGVideoConstraints360p;
+    Config *config = [Config defaultConfig];
+    [alert addAction:[UIAlertAction actionWithTitle:@"360p" style:(config.videoConstraints == WDGVideoConstraints360p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
+        config.videoConstraints = WDGVideoConstraints360p;
     }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"480p" style:(_videoConstraints == WDGVideoConstraints480p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
-        self.videoConstraints = WDGVideoConstraints480p;
+    [alert addAction:[UIAlertAction actionWithTitle:@"480p" style:(config.videoConstraints == WDGVideoConstraints480p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
+        config.videoConstraints = WDGVideoConstraints480p;
 
     }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"720p" style:(_videoConstraints == WDGVideoConstraints720p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
-        self.videoConstraints = WDGVideoConstraints720p;
+    [alert addAction:[UIAlertAction actionWithTitle:@"720p" style:(config.videoConstraints == WDGVideoConstraints720p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
+        config.videoConstraints = WDGVideoConstraints720p;
     }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"1080p" style:(_videoConstraints == WDGVideoConstraints1080p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
-        self.videoConstraints = WDGVideoConstraints1080p;
+    [alert addAction:[UIAlertAction actionWithTitle:@"1080p" style:(config.videoConstraints == WDGVideoConstraints1080p)? UIAlertActionStyleDestructive : 0 handler:^(UIAlertAction * _Nonnull action) {
+        config.videoConstraints = WDGVideoConstraints1080p;
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        self.videoConstraints = WDGVideoConstraints1080p;
+        config.videoConstraints = WDGVideoConstraints1080p;
     }]];
     [self presentViewController:alert animated:YES completion:NULL];
 }

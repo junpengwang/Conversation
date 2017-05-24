@@ -21,6 +21,7 @@
 		EA089CE21EB04CCB00AA16EC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EA089CE11EB04CCB00AA16EC /* libc++.tbd */; };
 		EA089CE51EB07D3100AA16EC /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CE41EB07D3100AA16EC /* InviteViewController.m */; };
 		EA089CE81EB0867900AA16EC /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CE71EB0867900AA16EC /* RoomViewController.m */; };
+		EA1069D01ED433CE0021F7CF /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1069CF1ED433CE0021F7CF /* Config.m */; };
 		FFBFA0B39E8BB18A3B446AE1 /* libPods-Convasation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB6EAD2FAC63AD01FEEFAE2A /* libPods-Convasation.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,8 @@
 		EA089CE61EB0867900AA16EC /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		EA089CE71EB0867900AA16EC /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 		EA089D8C1EB339BA00AA16EC /* PGSkinPrettifyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSkinPrettifyType.h; sourceTree = "<group>"; };
+		EA1069CE1ED433CE0021F7CF /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		EA1069CF1ED433CE0021F7CF /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		EB6EAD2FAC63AD01FEEFAE2A /* libPods-Convasation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Convasation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,6 +124,8 @@
 				EA089CE41EB07D3100AA16EC /* InviteViewController.m */,
 				EA089CE61EB0867900AA16EC /* RoomViewController.h */,
 				EA089CE71EB0867900AA16EC /* RoomViewController.m */,
+				EA1069CE1ED433CE0021F7CF /* Config.h */,
+				EA1069CF1ED433CE0021F7CF /* Config.m */,
 				EA089CC51EB03AF300AA16EC /* Main.storyboard */,
 				EA089CC81EB03AF300AA16EC /* Assets.xcassets */,
 				EA089CCA1EB03AF300AA16EC /* LaunchScreen.storyboard */,
@@ -271,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA1069D01ED433CE0021F7CF /* Config.m in Sources */,
 				EA089CE81EB0867900AA16EC /* RoomViewController.m in Sources */,
 				EA089CC11EB03AF300AA16EC /* AppDelegate.m in Sources */,
 				EA089CBE1EB03AF300AA16EC /* main.m in Sources */,

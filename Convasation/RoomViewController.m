@@ -11,7 +11,7 @@
 
 #import "RoomViewController.h"
 #import "PGSkinPrettifyEngine.h"
-
+#import "Config.h"
 
 @interface RoomViewController () <WDGVideoConversationDelegate,WDGVideoLocalStreamDelegate,WDGVideoParticipantDelegate,WDGVideoConversationStatsDelegate>
 
@@ -25,8 +25,6 @@
 
 // camera 360
 @property (nonatomic, strong) PGSkinPrettifyEngine *pPGSkinPrettifyEngine;
-@property (nonatomic) __attribute__((NSObject)) CFMutableArrayRef sampleBufferList;
-@property (strong, nonatomic) dispatch_queue_t mSkinQueue;
 @property (nonatomic, assign) BOOL m_bIsFirstFrame;
 
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
@@ -85,10 +83,7 @@
     _m_bIsFirstFrame = YES;
     
     [_pPGSkinPrettifyEngine InitEngineWithKey:DEMOKEY];
-    
-    _sampleBufferList = CFArrayCreateMutable(kCFAllocatorDefault, 0, & kCFTypeArrayCallBacks);//存储需要处理的数据
-    _mSkinQueue = dispatch_queue_create("com.skin.configure", DISPATCH_QUEUE_SERIAL);
-    
+        
     [self.pPGSkinPrettifyEngine SetSkinSoftenAlgorithm:PGSoftenAlgorithmContrast];
     
     /*--------------------增加滤镜----------------------*/
@@ -129,8 +124,8 @@
     __weak typeof(self) weakSelf = self;
     if (self.uid) {
         WDGVideoLocalStreamOptions *option = [[WDGVideoLocalStreamOptions alloc] init];
+        option.videoOption = [Config defaultConfig].videoConstraints;
         WDGVideoLocalStream *localStream = [[WDGVideoLocalStream alloc] initWithOptions:option];
-        
         WDGVideoConnectOptions *connectOptions = [[WDGVideoConnectOptions alloc] initWithLocalStream:localStream];
         connectOptions.userData = @"abc";
         self.outgoingInvite = [self.wilddogVideoClient inviteToConversationWithID:self.uid options:connectOptions completion:^(WDGVideoConversation * _Nullable conversation, NSError * _Nullable error) {
@@ -286,14 +281,6 @@
         _fpsLabel.text = [NSString stringWithFormat:@"fps:%lu",(unsigned long)report.FPS];
         _bitSentLabel.text = [NSString stringWithFormat:@"sent:%.2fMB ",report.bytesSent/1024/1024.f];
         _sendRateLabel.text = [NSString stringWithFormat:@"rate:%.2fKBS ",report.bitsSentRate/8.f];
-        
-//        NSMutableString *des = [NSMutableString stringWithString:@"LocalStream:"];
-//        [des appendFormat:@"width*height:%lu*%lu ",(unsigned long)report.width,(unsigned long)report.height];
-//        [des appendFormat:@"FPS:%lu ",(unsigned long)report.FPS];
-//        [des appendFormat:@"sent:%2fMB ",report.bytesSent/8/1024/1024.f];
-//        [des appendFormat:@"rate:%2fKBS ",report.bitsSentRate/8.f];
-//        _logView.text = [_logView.text stringByAppendingString:des];
-//        [_logView setContentOffset:CGPointMake(0,  (_logView.contentSize.height - _logView.frame.size.height))];
     });
 }
 
@@ -305,14 +292,6 @@
         _bitRecieve.text = [NSString stringWithFormat:@"recieved:%.2fMB ",report.bytesReceived/1024/1024.f];
         _receiverate.text = [NSString stringWithFormat:@"rate:%.2fKBS delay%lums",report.bitsReceivedRate/8.f,(unsigned long)report.delay];
         
-//        NSMutableString *des = [NSMutableString stringWithString:@"RemoteStream:"];
-//        [des appendFormat:@"width*height:%lu*%lu ",(unsigned long)report.width,(unsigned long)report.height];
-//        [des appendFormat:@"FPS:%lu ",(unsigned long)report.FPS];
-//        [des appendFormat:@"bytesReceived:%2fMB ",report.bytesReceived/8/1024/1024.f];
-//        [des appendFormat:@"ReceivedRate:%2fKBS ",report.bitsReceivedRate/8.f];
-//        [des appendFormat:@"Delay %lums ",(unsigned long)report.delay];
-//        _logView.text = [_logView.text stringByAppendingString:des];
-//        [_logView setContentOffset:CGPointMake(0,  (_logView.contentSize.height - _logView.frame.size.height))];
     });
 }
 #pragma mark -

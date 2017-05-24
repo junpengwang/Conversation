@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Convasation/InviteViewController.m"
-            timestampString = "516874651.559208"
+            timestampString = "517223738.699617"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "-setting:"
             landmarkType = "7">
          </BreakpointContent>
@@ -60,38 +60,13 @@
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            condition = "========"
-            continueAfterRunningActions = "Yes"
-            filePath = "../WilddogVideo/WilddogVideo/Signaling/WDGVideoP2PPeerConnectionManager.m"
-            timestampString = "516958564.370925"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
-            landmarkName = "-_sendAnswer"
-            landmarkType = "7">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
-                  <ActionContent
-                     consoleCommand = "po self.">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Convasation/RoomViewController.m"
-            timestampString = "516883573.743375"
+            timestampString = "517223738.699617"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "-participant:didDisconnectWithError:"
             landmarkType = "7">
          </BreakpointContent>
@@ -119,7 +94,7 @@
                   moduleName = "Convasation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/junpengwang/Documents/Work/iOS/WilddogVideo/WilddogVideo/WDGVideoConversation.m"
-                  timestampString = "516960718.335143"
+                  timestampString = "517222124.374892"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "201"
@@ -134,7 +109,7 @@
                   moduleName = "Convasation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/junpengwang/Documents/Work/iOS/WilddogVideo/WilddogVideo/WDGVideoConversation.m"
-                  timestampString = "516960718.3365"
+                  timestampString = "517222124.3761"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "201"
@@ -150,13 +125,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../WilddogVideo/WilddogVideo/Signaling/WDGVideoWilddogSignalingChannel.m"
-            timestampString = "516945191.347246"
+            filePath = "../WilddogVideo/WilddogVideo/Invitation/WDGVideoInvitationManager.m"
+            timestampString = "517148741.240577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "-startObserving"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "-_setUpIncomingInviteObserving"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -166,119 +141,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../WilddogVideo/WilddogVideo/Signaling/WDGVideoWilddogSignalingChannel.m"
-            timestampString = "516945194.767204"
+            filePath = "Convasation/InviteViewController.m"
+            timestampString = "517223738.699617"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-sendMessage:"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "-wilddogVideoClient:didReceiveInvite:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../WilddogVideo/WilddogVideo/Signaling/WDGVideoP2PPeerConnectionManager.m"
-            timestampString = "516958564.370925"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "-peerConnection:didAddStream:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../WilddogVideo/WilddogVideo/Signaling/WDGVideoP2PPeerConnectionManager.m"
-            timestampString = "516958564.370925"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
-            landmarkName = "-_processAnswer:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[WDGVideoP2PPeerConnectionManager _processAnswer:]"
-                  moduleName = "Convasation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/junpengwang/Documents/Work/iOS/WilddogVideo/WilddogVideo/Signaling/WDGVideoP2PPeerConnectionManager.m"
-                  timestampString = "516960718.34238"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "315"
-                  endingLineNumber = "315"
-                  offsetFromSymbolStart = "52">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__51-[WDGVideoP2PPeerConnectionManager _processAnswer:]_block_invoke"
-                  moduleName = "Convasation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/junpengwang/Documents/Work/iOS/WilddogVideo/WilddogVideo/Signaling/WDGVideoP2PPeerConnectionManager.m"
-                  timestampString = "516960718.343727"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "316"
-                  endingLineNumber = "316"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../WilddogVideo/WilddogVideo/Signaling/WDGVideoP2PPeerConnectionManager.m"
-            timestampString = "516958564.370925"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "339"
-            endingLineNumber = "339"
-            landmarkName = "-_processOffer:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            condition = "1"
-            continueAfterRunningActions = "Yes"
-            filePath = "../WilddogVideo/WilddogVideo/SyncReference/WDGConversationRef.m"
-            timestampString = "516956420.269244"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "+observeSignalingChannelWithSender:receiver:block:"
-            landmarkType = "7">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
-                  <ActionContent
-                     consoleCommand = "po snapshot.ref">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
