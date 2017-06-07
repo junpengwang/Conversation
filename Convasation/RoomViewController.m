@@ -37,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *bitRecieve;
 @property (weak, nonatomic) IBOutlet UILabel *receiverate;
 
+@property (weak, nonatomic) IBOutlet UIImageView *captureView;
 
 @end
 
@@ -62,6 +63,8 @@
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     self.remoteVideoView.contentMode = UIViewContentModeScaleAspectFill;
     self.localVideoView.contentMode = UIViewContentModeScaleAspectFill;
+    self.remoteVideoView.layer.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
+    self.localVideoView.layer.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
     [self setupStream];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSessionRouteChange:) name:AVAudioSessionRouteChangeNotification object:nil];
 
@@ -88,8 +91,8 @@
     
     /*--------------------增加滤镜----------------------*/
     
-    [_pPGSkinPrettifyEngine SetColorFilterStrength:100];
-    [_pPGSkinPrettifyEngine SetColorFilterByName:@"Deep"];
+//    [_pPGSkinPrettifyEngine SetColorFilterStrength:100];
+//    [_pPGSkinPrettifyEngine SetColorFilterByName:@"Deep"];
     
     /*---------------------------------增加贴纸---------------------------------*/
     
@@ -109,8 +112,8 @@
     switch (routeChangeReason) {
         case AVAudioSessionRouteChangeReasonCategoryChange: {
             // Set speaker as default route
-            NSError* error;
-            [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&error];
+//            NSError* error;
+//            [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&error];
         }
             break;
             
@@ -238,7 +241,27 @@
         return pixelBuffer;
     }
     CGSize size = CVImageBufferGetDisplaySize(pixelBuffer);
-    
+    PGOrientation orientation = PGOrientationNormal;
+    switch ([UIDevice currentDevice].orientation) {
+        case UIDeviceOrientationPortrait:
+            orientation = PGOrientationNormal;
+            break;
+        case UIDeviceOrientationPortraitUpsideDown:
+            orientation = PGOrientationRightRotate180;
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+            orientation = PGOrientationRightRotate90;
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            orientation = PGOrientationRightRotate270;
+            break;
+        case UIDeviceOrientationFaceUp:
+        case UIDeviceOrientationFaceDown:
+        case UIDeviceOrientationUnknown:
+            return pixelBuffer;
+            // Ignore.
+    }
+
     // 在第一帧视频到来时，初始化美肤引擎，指定需要的输出大小和输出委托
     if (self.m_bIsFirstFrame)
     {
@@ -248,20 +271,20 @@
         [_pPGSkinPrettifyEngine SetSizeForAdjustInput:sizeForAdjustInput];
         [_pPGSkinPrettifyEngine SetOrientForAdjustInput:orientForAdjustInput];
         [_pPGSkinPrettifyEngine SetOutputFormat:PGPixelFormatYUV420];
-        [_pPGSkinPrettifyEngine SetOutputOrientation:PGOrientationNormal];
         //        [_pPGSkinPrettifyEngine SetSkinPrettifyResultDelegate:self];
         [_pPGSkinPrettifyEngine SetSkinSoftenStrength:80];
-        [_pPGSkinPrettifyEngine SetSkinColor:0.6 Whitening:0.5 Redden:0.6];
+        [_pPGSkinPrettifyEngine SetSkinColor:0.6 Whitening:0.5 Redden:0.4];
         
         self.m_bIsFirstFrame = NO;
     }
         
     //  对当前帧进行美肤
-    
+    [_pPGSkinPrettifyEngine SetOutputOrientation:orientation];
+
     [_pPGSkinPrettifyEngine SetInputFrameByCVImage:pixelBuffer];
-    [_pPGSkinPrettifyEngine SetSkinColor:1 Whitening:1 Redden:1];
+    [_pPGSkinPrettifyEngine SetSkinColor:0.6 Whitening:0.5 Redden:1];
     [_pPGSkinPrettifyEngine RunEngine];
-    [_pPGSkinPrettifyEngine PGOglViewPresent];
+//    [_pPGSkinPrettifyEngine PGOglViewPresent];
     
     [_pPGSkinPrettifyEngine GetSkinPrettifyResult:&pixelBuffer];
     OSType type = CVPixelBufferGetPixelFormatType(pixelBuffer);
@@ -301,6 +324,7 @@
     return NO;
 }
 - (IBAction)setting:(id)sender {
+    [self.wilddogVideoConversation startVideoRecording:[NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/record_%@.mp4",[NSDate date]]]];
 //    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"设置清晰度"
 //                                                                   message:nil
 //                                                            preferredStyle:UIAlertControllerStyleActionSheet];

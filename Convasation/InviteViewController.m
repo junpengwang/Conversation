@@ -40,8 +40,6 @@
     
     [self setupWilddogSyncAndAuth];
     
-    [self observeringOnlineUser];
-    
     [self setupWilddogVideoClient];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -60,7 +58,7 @@
 #pragma mark - init
 
 - (void)setupWilddogSyncAndAuth {
-    [WDGApp configureWithOptions:[[WDGOptions alloc] initWithSyncURL:@"https://wildvideo.wilddogio.com/"]];
+    [WDGApp configureWithOptions:[[WDGOptions alloc] initWithSyncURL:@"https://wang.wilddogio.com/"]];
     self.wilddogSyncReference = [[[WDGSync sync] reference] child:@"wilddogVideo"];
     self.wilddogAuth = [WDGAuth auth];
 }
@@ -98,6 +96,7 @@
             [ref onDisconnectRemoveValue];
             self.wilddogVideoClient = [[WDGVideoClient alloc] initWithApp:[WDGApp defaultApp]];
             self.wilddogVideoClient.delegate = self;
+            [self observeringOnlineUser];
         }];
     }];
     
@@ -120,6 +119,10 @@
         }
         NSLog(@"users-----%@",users);
         self.onLineUsers = users;
+        if (self.onLineUsers.count > 0) {
+//            [self inviteUserWithUid:self.onLineUsers[0] client:self.wilddogVideoClient];
+        }
+
         [weakSelf.tableView reloadData];
     }];
 
@@ -179,6 +182,15 @@
 }
 
 - (void)processIncomingInvitation:(WDGVideoIncomingInvite *)invite {
+    WDGVideoLocalStreamOptions *option = [[WDGVideoLocalStreamOptions alloc] init];
+    option.videoOption = [Config defaultConfig].videoConstraints;
+    WDGVideoLocalStream *localStream = [[WDGVideoLocalStream alloc] initWithOptions:option];
+    NSLog(@"%@",localStream);
+    [invite acceptWithLocalStream:localStream completion:^(WDGVideoConversation * _Nullable conversation, NSError * _Nullable error) {
+        
+        [self presentRoomWithConversation:conversation toUid:nil];
+    }];
+    return;
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:invite.fromParticipantID
                                                                    message:[NSString stringWithFormat:@"%@ 邀请你进行视频通话", invite.fromParticipantID]
                                                             preferredStyle:UIAlertControllerStyleAlert];

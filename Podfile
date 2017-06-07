@@ -5,7 +5,7 @@ source 'https://github.com/WildDogTeam/wilddog-ios-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Convasation' do
-  pod 'WilddogVideo', :path => '../WilddogVideo'
+    pod 'WilddogVideo', :path => '../WilddogVideo'
 
 #pod 'WilddogVideo','0.6.0pre'
   # Pods for Convasation
