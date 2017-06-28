@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA07EE681EE81DAB007A74CF /* Camera360Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = EA07EE671EE81DAB007A74CF /* Camera360Engine.m */; };
 		EA089CBE1EB03AF300AA16EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CBD1EB03AF300AA16EC /* main.m */; };
 		EA089CC11EB03AF300AA16EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA089CC01EB03AF300AA16EC /* AppDelegate.m */; };
 		EA089CC71EB03AF300AA16EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA089CC51EB03AF300AA16EC /* Main.storyboard */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		535E4FFD9E2994FE58EE38D7 /* Pods-Convasation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convasation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Convasation/Pods-Convasation.debug.xcconfig"; sourceTree = "<group>"; };
 		C8C8979DEE4581F3DB9C2167 /* Pods-Convasation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convasation.release.xcconfig"; path = "Pods/Target Support Files/Pods-Convasation/Pods-Convasation.release.xcconfig"; sourceTree = "<group>"; };
+		EA07EE661EE81DAB007A74CF /* Camera360Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera360Engine.h; sourceTree = "<group>"; };
+		EA07EE671EE81DAB007A74CF /* Camera360Engine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera360Engine.m; sourceTree = "<group>"; };
 		EA089CB91EB03AF300AA16EC /* Convasation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Convasation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA089CBD1EB03AF300AA16EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EA089CBF1EB03AF300AA16EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 				EA089CE71EB0867900AA16EC /* RoomViewController.m */,
 				EA1069CE1ED433CE0021F7CF /* Config.h */,
 				EA1069CF1ED433CE0021F7CF /* Config.m */,
+				EA07EE661EE81DAB007A74CF /* Camera360Engine.h */,
+				EA07EE671EE81DAB007A74CF /* Camera360Engine.m */,
 				EA089CC51EB03AF300AA16EC /* Main.storyboard */,
 				EA089CC81EB03AF300AA16EC /* Assets.xcassets */,
 				EA089CCA1EB03AF300AA16EC /* LaunchScreen.storyboard */,
@@ -278,6 +283,7 @@
 			files = (
 				EA1069D01ED433CE0021F7CF /* Config.m in Sources */,
 				EA089CE81EB0867900AA16EC /* RoomViewController.m in Sources */,
+				EA07EE681EE81DAB007A74CF /* Camera360Engine.m in Sources */,
 				EA089CC11EB03AF300AA16EC /* AppDelegate.m in Sources */,
 				EA089CBE1EB03AF300AA16EC /* main.m in Sources */,
 				EA089CE51EB07D3100AA16EC /* InviteViewController.m in Sources */,
@@ -404,6 +410,7 @@
 				DEVELOPMENT_TEAM = 5RERN32D73;
 				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Convasation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -423,6 +430,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5RERN32D73;
 				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Convasation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

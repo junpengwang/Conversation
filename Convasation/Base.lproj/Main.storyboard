@@ -89,13 +89,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="SE5-AT-dn8" customClass="WDGVideoView">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="SE5-AT-dn8" customClass="WDGBeautyVideoView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </view>
-                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qNk-3V-meM" customClass="WDGVideoView">
+                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qNk-3V-meM" customClass="WDGBeautyVideoView">
                                 <rect key="frame" x="294" y="72" width="73" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.2208872714" blue="0.375565335" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlz-b2-3x7">
                                 <rect key="frame" x="0.0" y="468" width="375" height="155"/>
@@ -225,10 +224,10 @@
                         <outlet property="bitSentLabel" destination="fbi-uN-6bI" id="uVz-pN-wJw"/>
                         <outlet property="captureView" destination="fcg-DY-VdR" id="hmk-J6-XaD"/>
                         <outlet property="fpsLabel" destination="f6C-gq-zbQ" id="jhC-rg-3Vf"/>
-                        <outlet property="localVideoView" destination="SE5-AT-dn8" id="Ivm-fO-94U"/>
+                        <outlet property="localVideoView" destination="SE5-AT-dn8" id="4LF-6O-xgJ"/>
                         <outlet property="receiverate" destination="fHe-0n-4g4" id="OSi-EE-bh2"/>
                         <outlet property="remoteSize" destination="IEN-qh-bLS" id="Qox-3e-OjJ"/>
-                        <outlet property="remoteVideoView" destination="qNk-3V-meM" id="y7a-we-tHP"/>
+                        <outlet property="remoteVideoView" destination="qNk-3V-meM" id="POB-BX-WXC"/>
                         <outlet property="remotefps" destination="aHu-Kq-7EW" id="WOf-Q2-enb"/>
                         <outlet property="sendRateLabel" destination="9Sv-go-oNx" id="KjD-lV-DIi"/>
                         <outlet property="sizeLabel" destination="IML-k8-q0s" id="Lel-H6-nYC"/>

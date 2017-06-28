@@ -5,7 +5,10 @@ source 'https://github.com/WildDogTeam/wilddog-ios-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Convasation' do
-    pod 'WilddogVideo', :path => '../WilddogVideo'
+    pod 'WilddogVideo', '1.1.1beta'
+#   pod 'WilddogVideo', :path => '../WilddogVideo'
+#   pod 'WebRTC', :path => '../video-client-ios-webrtc-binary'
+#   pod 'WebRTC', '58.0.3'
 
 #pod 'WilddogVideo','0.6.0pre'
   # Pods for Convasation

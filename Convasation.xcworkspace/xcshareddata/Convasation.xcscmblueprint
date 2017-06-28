@@ -10,7 +10,7 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "65579192-B28F-479C-8B1E-4ADA68637307",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "BBE3201EEA9C04A4BFCC77D0FBC63E80BB101560" : "..\/video-client-ios-webrtc-binary",
+    "BBE3201EEA9C04A4BFCC77D0FBC63E80BB101560" : "video-client-ios-webrtc-binary\/",
     "9CB793724596AD856D47EB814C6FC8F7C888F458" : "WilddogVideo\/",
     "1FD33AEBB19B605EFA4A4256AE1459D328AC0AC7" : "Convasation\/"
   },
