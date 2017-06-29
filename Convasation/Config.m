@@ -1,6 +1,6 @@
 //
 //  Config.m
-//  Convasation
+//  Conversation
 //
 //  Created by junpengwang on 2017/5/23.
 //  Copyright © 2017年 wilddog. All rights reserved.

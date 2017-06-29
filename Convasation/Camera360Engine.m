@@ -1,6 +1,6 @@
 //
 //  Camera360Engine.m
-//  Convasation
+//  Conversation
 //
 //  Created by junpengwang on 07/06/2017.
 //  Copyright © 2017 wilddog. All rights reserved.

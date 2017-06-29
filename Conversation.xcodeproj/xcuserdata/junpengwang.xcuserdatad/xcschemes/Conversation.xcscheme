@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EA089CB81EB03AF300AA16EC"
-               BuildableName = "Convasation.app"
-               BlueprintName = "Convasation"
-               ReferencedContainer = "container:Convasation.xcodeproj">
+               BuildableName = "Conversation.app"
+               BlueprintName = "Conversation"
+               ReferencedContainer = "container:Conversation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EA089CB81EB03AF300AA16EC"
-            BuildableName = "Convasation.app"
-            BlueprintName = "Convasation"
-            ReferencedContainer = "container:Convasation.xcodeproj">
+            BuildableName = "Conversation.app"
+            BlueprintName = "Conversation"
+            ReferencedContainer = "container:Conversation.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,17 +56,12 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EA089CB81EB03AF300AA16EC"
-            BuildableName = "Convasation.app"
-            BlueprintName = "Convasation"
-            ReferencedContainer = "container:Convasation.xcodeproj">
+            BuildableName = "Conversation.app"
+            BlueprintName = "Conversation"
+            ReferencedContainer = "container:Conversation.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
-         <AdditionalOption
-            key = "NSZombieEnabled"
-            value = "YES"
-            isEnabled = "YES">
-         </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
@@ -80,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EA089CB81EB03AF300AA16EC"
-            BuildableName = "Convasation.app"
-            BlueprintName = "Convasation"
-            ReferencedContainer = "container:Convasation.xcodeproj">
+            BuildableName = "Conversation.app"
+            BlueprintName = "Conversation"
+            ReferencedContainer = "container:Conversation.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
