@@ -35,4 +35,4 @@ Demo 中不需要配置任何参数即可正常运行。如需使用自己帐号
 - Camera360 相关文档请参考：[品果视频美肤引擎](https://github.com/pinguo/PGSkinPrettifyEngine)
 
 ### 已知问题
-- 偶尔情况出现邀请端远程流不显示的问题。
+- 无
