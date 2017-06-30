@@ -5,8 +5,9 @@
 pod install
 open Convasation.xcworkspace -a xcode
 ```
-2.分别在两个手机上安装此项目，同时打开测试应用，在一端点击列表中的人员就可以邀请对方加入视频聊天。  
-	  
+2.下载 Camera360 美颜 SDK。Camera360 相关文档请参考：[品果视频美肤引擎](https://github.com/pinguo/PGSkinPrettifyEngine)
+3.分别在两个手机上安装此项目，同时打开测试应用，在一端点击列表中的人员就可以邀请对方加入视频聊天。   
+	  
 ### 需要配置参数
 Demo 中不需要配置任何参数即可正常运行。如需使用自己帐号，请替换两个地方：
 
